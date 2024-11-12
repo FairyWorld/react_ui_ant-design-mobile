@@ -1,6 +1,7 @@
 import { RightOutlined } from '@ant-design/icons'
 import { useSize } from 'ahooks'
 import { Button, Card } from 'antd-mobile'
+import { Link } from 'dumi'
 import React, { useEffect, useRef, useState } from 'react'
 import Lottie from 'react-lottie'
 import { useTrans } from '../../../hooks/useTrans'
@@ -97,15 +98,11 @@ export default () => {
                   <div className={styles.productResourceCardDescription}>
                     {resource.description}
                   </div>
-                  <Button
-                    className={styles.productResourceCardButton}
-                    type='primary'
-                    shape='round'
-                    target={resource.target}
-                    href={resource.buttonLink}
-                  >
-                    {resource.buttonText}
-                  </Button>
+                  <Link to={resource.buttonLink} target={resource.target}>
+                    <Button className={styles.productResourceCardButton}>
+                      {resource.buttonText}
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             ))}
